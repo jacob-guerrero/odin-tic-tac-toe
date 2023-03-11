@@ -29,3 +29,5 @@ const Player = (name) => {
 };
 
 GameBoard.showBoard();
+const playerOne = Player("Jhon");
+const playerTwo = Player("Doe");
