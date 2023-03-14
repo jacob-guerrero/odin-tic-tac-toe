@@ -1,9 +1,43 @@
 const GameBoard = (() => {
   let gameBoard = [
-    [1, 0, 0],
-    [0, 1, 0],
-    [0, 0, 1],
+    ["", "", ""],
+    ["", "", ""],
+    ["", "", ""],
   ];
+
+  let playerMark = 1;
+  let mark = "";
+  const switchPlayer = () => {
+    if (playerMark === 1) {
+      mark = "X";
+      playerMark = 0;
+    } else {
+      mark = "O";
+      playerMark = 1;
+    }
+    return mark;
+  }
+
+  const addMark = (elem) => {
+    elem.addEventListener("click", (e) => {
+      console.log(e.target.dataset.index);
+      console.log(e.target.textContent);
+
+      let l = 0; // Counter index
+      for (let j = 0; j < gameBoard.length; j += 1) {
+        for (let k = 0; k < 3; k += 1) {
+          if (l === +e.target.dataset.index && gameBoard[j][k] === "") {
+            mark = switchPlayer();
+            gameBoard[j][k] = mark;
+            e.target.textContent = mark;
+            return;
+          }
+          l += 1;
+        }
+      }
+    });
+  };
+
   const showBoard = () => {
     let i = 0; // Dataset counter
     gameBoard.forEach((row) => {
@@ -19,26 +53,12 @@ const GameBoard = (() => {
         elem.textContent = value;
         rows.appendChild(elem);
 
-        elem.addEventListener("click", (e) => {
-          console.log(e.target.dataset.index);
-          console.log(e.target.textContent);
-
-          let l = 0; // Counter index
-          for (let j = 0; j < gameBoard.length; j += 1) {
-            for (let k = 0; k < 3; k += 1) {
-              if (l === +e.target.dataset.index && gameBoard[j][k] === 0) {
-                gameBoard[j][k] = "X";
-                e.target.textContent = "X";
-                return;
-              }
-              l += 1;
-            }
-          }
-        });
+        addMark(elem);
         i += 1;
       });
     });
   };
+
   return { showBoard };
 })();
 
