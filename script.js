@@ -5,6 +5,42 @@ const GameBoard = (() => {
     ["", "", ""],
   ];
 
+  const checkWin = () => {
+    for (let i = 0; i < gameBoard.length; i+=1) {
+      // Win Rows:
+      if (
+        gameBoard[i][0] !== "" &&
+        gameBoard[i][0] === gameBoard[i][1] &&
+        gameBoard[i][1] === gameBoard[i][2]
+      ) {
+        console.log("Win!");
+      }
+      // Win Columns:
+      if (
+        gameBoard[0][i] !== "" &&
+        gameBoard[0][i] === gameBoard[1][i] &&
+        gameBoard[0][i] === gameBoard[2][i]
+      ) {
+        console.log("Win!");
+      }
+    }
+    // Win Crossed:
+    if (
+      gameBoard[0][0] !== "" &&
+      gameBoard[0][0] === gameBoard[1][1] &&
+      gameBoard[0][0] === gameBoard[2][2]
+    ) {
+      console.log("Win!");
+    }
+    if (
+      gameBoard[0][2] !== "" &&
+      gameBoard[0][2] === gameBoard[1][1] &&
+      gameBoard[0][2] === gameBoard[2][0]
+    ) {
+      console.log("Win!");
+    }
+  };
+
   let playerMark = 1;
   let mark = "";
   const switchPlayer = () => {
@@ -16,7 +52,7 @@ const GameBoard = (() => {
       playerMark = 1;
     }
     return mark;
-  }
+  };
 
   const addMark = (elem) => {
     elem.addEventListener("click", (e) => {
@@ -30,6 +66,7 @@ const GameBoard = (() => {
             mark = switchPlayer();
             gameBoard[j][k] = mark;
             e.target.textContent = mark;
+            checkWin();
             return;
           }
           l += 1;
