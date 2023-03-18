@@ -94,12 +94,17 @@ const GameBoard = (() => {
       rows.classList.add("row");
       container.appendChild(rows);
 
+      
+        const span = document.createElement("span");
+        rows.appendChild(span);
+
       row.forEach((value) => {
         const elem = document.createElement("div");
         elem.setAttribute("data-index", i);
         elem.classList.add("spot");
         elem.textContent = value;
         rows.appendChild(elem);
+
 
         addMark(elem);
         i += 1;
