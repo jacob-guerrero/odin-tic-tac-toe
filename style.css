@@ -1,19 +1,28 @@
 /*  */
+body {
+    display: flex;
+    justify-content: center;
+}
 .container {
+    width: 60vw;
+    height: 60vw;
     display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
 }
 .row {
- display: flex;
- justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
 }
 .spot {
     display: flex;
-    width: 100px;
-    height: 100px;
     justify-content: center;
     align-items: center;
     border: 1px solid black;
     background-color: #eee;
+    font-size: clamp(1rem, 10vw, 10rem);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .row {
@@ -22,11 +31,12 @@
 
 span {
   position: absolute;
-  left: 0%;
-  top: 50%;
-  height: 2px;
-  background: #c00;
+  left: 5%;
+  top: calc(50% - 4px);
+  height: 0.4rem;
+  background: black;
   content: "";
-  width: 100%;
+  width: 90%;
+  border-radius: 5px;
   z-index: 10;
 }
