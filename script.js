@@ -33,6 +33,7 @@ const GameBoard = (() => {
         endGame();
       }
     }
+
     // Win Crossed:
     if (
       gameBoard[0][0] !== "" &&
@@ -70,7 +71,7 @@ const GameBoard = (() => {
       console.log(e.target.dataset.index);
       console.log(e.target.textContent);
 
-      let l = 0; // Counter index
+      let l = 0; // Index counter
       for (let j = 0; j < gameBoard.length; j += 1) {
         for (let k = 0; k < 3; k += 1) {
           if (l === +e.target.dataset.index && gameBoard[j][k] === "") {
@@ -94,9 +95,8 @@ const GameBoard = (() => {
       rows.classList.add("row");
       container.appendChild(rows);
 
-      
-        const span = document.createElement("span");
-        rows.appendChild(span);
+      const span = document.createElement("span");
+      rows.appendChild(span);
 
       row.forEach((value) => {
         const elem = document.createElement("div");
@@ -104,7 +104,6 @@ const GameBoard = (() => {
         elem.classList.add("spot");
         elem.textContent = value;
         rows.appendChild(elem);
-
 
         addMark(elem);
         i += 1;

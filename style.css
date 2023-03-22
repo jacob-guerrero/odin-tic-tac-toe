@@ -1,8 +1,40 @@
 /*  */
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
+:root {
+    --main-color: #1d3557;
+}
+html, body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    height: 100%;
+}
+h1, h2, h3, p {
+    margin: 0;
+}
+
 body {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
+.main-title {
+    height: 20vh;
+    font-size: 3rem;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
 .container {
     width: 60vw;
     height: 60vw;
