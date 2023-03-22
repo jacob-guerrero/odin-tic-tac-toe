@@ -30,13 +30,108 @@ body {
 }
 
 span {
-  position: absolute;
+    position: absolute;
+}
+
+/* Horizontal */
+/* span {
   left: 5%;
   top: calc(50% - 4px);
   height: 0.4rem;
   background: black;
   content: "";
-  width: 90%;
+  width: 1%;
   border-radius: 5px;
   z-index: 10;
+
+  -webkit-animation: increase 0.5s;
+    -moz-animation: increase 0.5s; 
+    -o-animation: increase 0.5s; 
+    animation: increase 0.5s ease-in-out;
+    animation-fill-mode: forwards;
+} */
+
+/* Vertical */ /* Needs to add span in container */
+/* .container {
+    position: relative;
+}
+span {
+    left: calc((100%)/6 - 3px);
+    top: 5%;
+    height: 1%;
+    background: black;
+    content: "";
+    width: 0.4rem;
+    border-radius: 5px;
+    z-index: 10;
+
+    -webkit-animation: incrVert 0.5s;
+    -moz-animation: incrVert 0.5s; 
+    -o-animation: incrVert 0.5s; 
+    animation: incrVert 0.5s ease-in-out;
+    animation-fill-mode: forwards;
+} */
+
+/* Crossed */
+/* .container {
+    position: relative;
+}
+span {
+    left: calc((100%)/12 - 3px);
+    height: 1%;
+    background: black;
+    content: "";
+    width: 0.4rem;
+    border-radius: 5px;
+    z-index: 10;
+    rotate: -45deg;
+
+    -webkit-animation: incrCross 0.5s;
+    -moz-animation: incrCross 0.5s; 
+    -o-animation: incrCross 0.5s; 
+    animation: incrCross 0.5s ease-in-out;
+    animation-fill-mode: forwards;
+} */
+
+/* .container {
+    position: relative;
+}
+span {
+    left: calc(100% - ((100%)/12 + 3px));
+    height: 1%;
+    background: black;
+    content: "";
+    width: 0.4rem;
+    border-radius: 5px;
+    z-index: 10;
+    rotate: 45deg;
+
+    -webkit-animation: incrCross 0.5s;
+    -moz-animation: incrCross 0.5s; 
+    -o-animation: incrCross 0.5s; 
+    animation: incrCross 0.5s ease-in-out;
+    animation-fill-mode: forwards;
+} */
+
+@keyframes increase {
+    100% {
+        width: 90%;
+    }
+}
+
+@keyframes incrVert {
+    100% {
+        height: 90%;
+    }
+}
+
+@keyframes incrCross {
+    0% {
+        top: 8%;
+    }
+    100% {
+        top: -10%;
+        left: calc(50% - 3px);
+        height: 120%;
+    }
 }
