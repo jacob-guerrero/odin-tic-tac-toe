@@ -51,6 +51,20 @@ const GameBoard = (() => {
       console.log("Win!");
       endGame();
     }
+
+    // Tie:
+    let fullCounter = 0;
+    gameBoard.forEach((cell) => {
+      cell.forEach((value) => {
+        if (value !== "") {
+          fullCounter += 1;
+        }
+      });
+      if (fullCounter === 9) {
+        console.log("Tie!");
+        endGame();
+      }
+    });
   };
 
   let playerMark = 1;
