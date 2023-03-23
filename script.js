@@ -125,7 +125,22 @@ const GameBoard = (() => {
     });
   };
 
-  return { showBoard };
+  const startGame = () => {
+    const button = document.querySelector(".start-reset");
+    const player1 = document.querySelector("#player1");
+    const player2 = document.querySelector("#player2");
+    button.addEventListener("click", () => {
+      if (player1.value === "") {
+        player1.value = "Player1";
+      }
+      if (player2.value === "") {
+        player2.value = "Player2";
+      }
+      button.textContent = "Reset";
+    });
+  };
+
+  return { showBoard, startGame };
 })();
 
 const Player = (name) => {
@@ -134,5 +149,6 @@ const Player = (name) => {
 };
 
 GameBoard.showBoard();
+GameBoard.startGame();
 const playerOne = Player("Jhon");
 const playerTwo = Player("Doe");
