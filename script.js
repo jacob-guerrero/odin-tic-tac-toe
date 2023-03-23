@@ -1,3 +1,10 @@
+// Factory Function to create players:
+const Player = (name) => {
+  console.log(name);
+  return { name };
+};
+
+// Module pattern to create the game:
 const GameBoard = (() => {
   let gameBoard = [
     ["", "", ""],
@@ -136,6 +143,25 @@ const GameBoard = (() => {
       if (player2.value === "") {
         player2.value = "Player2";
       }
+
+      // Reset values
+      if (button.textContent === "Reset") {
+        for (let i = 0; i < gameBoard.length; i += 1) {
+          for (let j = 0; j < 3; j += 1) {
+            gameBoard[i][j] = "";
+          }
+        }
+
+        const spots = document.querySelectorAll("[data-index]");
+        spots.forEach((spot) => {
+          spot.textContent = "";
+          spot.style.pointerEvents = "auto";
+        })
+      }
+
+      const playerOne = Player(player1.value);
+      const playerTwo = Player(player2.value);
+
       button.textContent = "Reset";
     });
   };
@@ -143,12 +169,5 @@ const GameBoard = (() => {
   return { showBoard, startGame };
 })();
 
-const Player = (name) => {
-  console.log(name);
-  return { name };
-};
-
 GameBoard.showBoard();
 GameBoard.startGame();
-const playerOne = Player("Jhon");
-const playerTwo = Player("Doe");
