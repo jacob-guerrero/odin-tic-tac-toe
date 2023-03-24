@@ -75,9 +75,16 @@ const GameBoard = (() => {
           fullCounter += 1;
         }
       });
-      if (fullCounter === 9) {
+      if (
+        fullCounter === 9 &&
+        document.querySelector('[data-index="0"]').style.pointerEvents !==
+          "none"
+      ) {
         console.log("Tie!");
-        endGame();
+        const spots = document.querySelectorAll(".spot");
+        spots.forEach((spot) => {
+          spot.style.pointerEvents = "none";
+        });
       }
     });
   };
