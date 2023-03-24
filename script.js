@@ -17,6 +17,14 @@ const GameBoard = (() => {
     spots.forEach((spot) => {
       spot.style.pointerEvents = "none";
     });
+    if (
+      playerMark === 0 &&
+      document.querySelector('[data-index="0"]').style.pointerEvents === "none"
+    ) {
+      console.log("player1 Wins!");
+    } else {
+      console.log("player2 Wins!");
+    }
   };
 
   const checkWin = () => {
@@ -74,23 +82,26 @@ const GameBoard = (() => {
     });
   };
 
-  let playerMark = 1;
+  // Switch Player
+  let playerMark = 0;
   let mark = "";
   const switchPlayer = () => {
     if (playerMark === 1) {
       mark = "X";
       playerMark = 0;
+      console.log("Player 2 turn");
     } else {
       mark = "O";
       playerMark = 1;
+      console.log("Player 1 turn");
     }
     return mark;
   };
 
   const addMark = (elem) => {
     elem.addEventListener("click", (e) => {
-      console.log(e.target.dataset.index);
-      console.log(e.target.textContent);
+      // console.log(e.target.dataset.index);
+      // console.log(e.target.textContent);
 
       let l = 0; // Index counter
       for (let j = 0; j < gameBoard.length; j += 1) {
@@ -137,11 +148,15 @@ const GameBoard = (() => {
     const player1 = document.querySelector("#player1");
     const player2 = document.querySelector("#player2");
     button.addEventListener("click", () => {
-      if (player1.value === "") {
-        player1.value = "Player1";
-      }
-      if (player2.value === "") {
-        player2.value = "Player2";
+      if (button.textContent === "Start") {
+        if (player1.value === "") {
+          player1.value = "Player1";
+        }
+        if (player2.value === "") {
+          player2.value = "Player2";
+        }
+        showBoard();
+        switchPlayer();
       }
 
       // Reset values
@@ -156,7 +171,9 @@ const GameBoard = (() => {
         spots.forEach((spot) => {
           spot.textContent = "";
           spot.style.pointerEvents = "auto";
-        })
+        });
+
+        playerMark = 1;
       }
 
       const playerOne = Player(player1.value);
@@ -166,8 +183,7 @@ const GameBoard = (() => {
     });
   };
 
-  return { showBoard, startGame };
+  return { startGame };
 })();
 
-GameBoard.showBoard();
 GameBoard.startGame();
