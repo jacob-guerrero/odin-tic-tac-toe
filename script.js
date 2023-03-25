@@ -21,9 +21,13 @@ const GameBoard = (() => {
       playerMark === 0 &&
       document.querySelector('[data-index="0"]').style.pointerEvents === "none"
     ) {
-      console.log("player1 Wins!");
+      console.log(`${playerOne.name} Wins!`);
+      playerOne.numWin += 1;
+      //console.log(playerOne.getWins);
     } else {
-      console.log("player2 Wins!");
+      console.log(`${playerTwo.name} Wins!`);
+      playerTwo.numWin += 1;
+      //console.log(playerTwo.numWin);
     }
   };
 
@@ -96,11 +100,11 @@ const GameBoard = (() => {
     if (playerMark === 1) {
       mark = "X";
       playerMark = 0;
-      console.log("Player 2 turn");
+      console.log("player 2 turn");
     } else {
       mark = "O";
       playerMark = 1;
-      console.log("Player 1 turn");
+      console.log("player 1 turn");
     }
     return mark;
   };
@@ -150,17 +154,23 @@ const GameBoard = (() => {
     });
   };
 
+  const player1 = document.querySelector("#player1");
+  const player2 = document.querySelector("#player2");
   const startGame = () => {
     const button = document.querySelector(".start-reset");
-    const player1 = document.querySelector("#player1");
-    const player2 = document.querySelector("#player2");
     button.addEventListener("click", () => {
       if (button.textContent === "Start") {
         if (player1.value === "") {
           player1.value = "Player1";
+          playerOne.name = player1.value;
+        } else {
+          playerOne.name = player1.value
         }
         if (player2.value === "") {
           player2.value = "Player2";
+          playerTwo.name = player2.value;
+        } else {
+          playerTwo.name = player2.value;
         }
         showBoard();
         switchPlayer();
@@ -183,12 +193,13 @@ const GameBoard = (() => {
         playerMark = 1;
       }
 
-      const playerOne = Player(player1.value);
-      const playerTwo = Player(player2.value);
-
       button.textContent = "Reset";
     });
   };
+
+  // Create players:
+  const playerOne = Player(player1.value);
+  const playerTwo = Player(player2.value);
 
   return { startGame };
 })();
