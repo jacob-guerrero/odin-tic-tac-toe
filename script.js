@@ -1,7 +1,10 @@
 // Factory Function to create players:
 const Player = (name) => {
-  console.log(name);
-  return { name };
+  let numWin = 0;
+  const addWin = () => numWin + 1;
+  const getWins = () => numWin;
+
+  return { name, addWin, getWins };
 };
 
 // Module pattern to create the game:
