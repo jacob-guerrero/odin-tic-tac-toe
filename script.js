@@ -1,7 +1,7 @@
 // Factory Function to create players:
 const Player = (name) => {
   let numWin = 0;
-  const addWin = () => numWin + 1;
+  const addWin = () => numWin++;
   const getWins = () => numWin;
 
   return { name, addWin, getWins };
@@ -25,12 +25,12 @@ const GameBoard = (() => {
       document.querySelector('[data-index="0"]').style.pointerEvents === "none"
     ) {
       console.log(`${playerOne.name} Wins!`);
-      playerOne.numWin += 1;
-      //console.log(playerOne.getWins);
+      playerOne.addWin();
+      console.log(playerOne.getWins());
     } else {
       console.log(`${playerTwo.name} Wins!`);
-      playerTwo.numWin += 1;
-      //console.log(playerTwo.numWin);
+      playerTwo.addWin();
+      console.log(playerTwo.getWins());
     }
   };
 
@@ -44,6 +44,7 @@ const GameBoard = (() => {
       ) {
         console.log("Win!");
         endGame();
+        return;
       }
       // Win Columns:
       if (
@@ -53,6 +54,7 @@ const GameBoard = (() => {
       ) {
         console.log("Win!");
         endGame();
+        return;
       }
     }
 
@@ -103,11 +105,11 @@ const GameBoard = (() => {
     if (playerMark === 1) {
       mark = "X";
       playerMark = 0;
-      console.log("player 2 turn");
+      console.log(`${playerTwo.name} turn`);
     } else {
       mark = "O";
       playerMark = 1;
-      console.log("player 1 turn");
+      console.log(`${playerOne.name} turn`);
     }
     return mark;
   };
@@ -167,7 +169,7 @@ const GameBoard = (() => {
           player1.value = "Player1";
           playerOne.name = player1.value;
         } else {
-          playerOne.name = player1.value
+          playerOne.name = player1.value;
         }
         if (player2.value === "") {
           player2.value = "Player2";
