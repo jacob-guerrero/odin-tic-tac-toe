@@ -159,6 +159,27 @@ const GameBoard = (() => {
     });
   };
 
+  const changeElements = (name1, name2) => {
+    const player1 = document.querySelector(".name1");
+    const player2 = document.querySelector(".name2");
+    const nameP1 = document.createElement("p");
+    const scoreP1 = document.createElement("p");
+    const nameP2 = document.createElement("p");
+    const scoreP2 = document.createElement("p");
+    nameP1.classList.add("nameP1");
+    nameP2.classList.add("nameP2");
+    scoreP1.classList.add("scoreP1");
+    scoreP2.classList.add("scoreP2");
+
+    nameP1.textContent = name1;
+    nameP2.textContent = name2;
+    scoreP1.textContent = "0";
+    scoreP2.textContent = "0";
+
+    player1.replaceChildren(nameP1, scoreP1);
+    player2.replaceChildren(nameP2, scoreP2);
+  };
+
   const player1 = document.querySelector("#player1");
   const player2 = document.querySelector("#player2");
   const startGame = () => {
@@ -177,6 +198,7 @@ const GameBoard = (() => {
         } else {
           playerTwo.name = player2.value;
         }
+        changeElements(playerOne.name, playerTwo.name);
         showBoard();
         switchPlayer();
       }
