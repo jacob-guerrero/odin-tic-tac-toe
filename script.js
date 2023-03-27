@@ -107,11 +107,13 @@ const GameBoard = (() => {
     if (playerMark === 1) {
       mark = "X";
       playerMark = 0;
-      console.log(`${playerTwo.name} turn`);
+      document.querySelector(".play-turn").textContent = `${playerTwo.name} turn`;
+      // console.log(`${playerTwo.name} turn`);
     } else {
       mark = "O";
       playerMark = 1;
-      console.log(`${playerOne.name} turn`);
+      document.querySelector(".play-turn").textContent = `${playerOne.name} turn`;
+      // console.log(`${playerOne.name} turn`);
     }
     return mark;
   };
@@ -219,6 +221,7 @@ const GameBoard = (() => {
           spot.style.pointerEvents = "auto";
         });
 
+        document.querySelector(".play-turn").textContent = `${playerOne.name} turn`;
         playerMark = 1;
       }
 
