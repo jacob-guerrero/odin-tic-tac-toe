@@ -24,12 +24,14 @@ const GameBoard = (() => {
       playerMark === 0 &&
       document.querySelector('[data-index="0"]').style.pointerEvents === "none"
     ) {
-      console.log(`${playerOne.name} Wins!`);
+      document.querySelector(".play-turn").textContent = `${playerOne.name} Wins!`;
+      // console.log(`${playerOne.name} Wins!`);
       playerOne.addWin();
       document.querySelector(".scoreP1").textContent = playerOne.getWins();
       // console.log(playerOne.getWins());
     } else {
-      console.log(`${playerTwo.name} Wins!`);
+      document.querySelector(".play-turn").textContent = `${playerTwo.name} Wins!`;
+      // console.log(`${playerTwo.name} Wins!`);
       playerTwo.addWin();
       document.querySelector(".scoreP2").textContent = playerTwo.getWins();
       // console.log(playerTwo.getWins());
@@ -91,7 +93,8 @@ const GameBoard = (() => {
         document.querySelector('[data-index="0"]').style.pointerEvents !==
           "none"
       ) {
-        console.log("Tie!");
+        document.querySelector(".play-turn").textContent = `It's a Tie!`;
+        // console.log("Tie!");
         const spots = document.querySelectorAll(".spot");
         spots.forEach((spot) => {
           spot.style.pointerEvents = "none";
