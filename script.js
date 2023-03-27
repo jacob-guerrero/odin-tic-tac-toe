@@ -26,11 +26,13 @@ const GameBoard = (() => {
     ) {
       console.log(`${playerOne.name} Wins!`);
       playerOne.addWin();
-      console.log(playerOne.getWins());
+      document.querySelector(".scoreP1").textContent = playerOne.getWins();
+      // console.log(playerOne.getWins());
     } else {
       console.log(`${playerTwo.name} Wins!`);
       playerTwo.addWin();
-      console.log(playerTwo.getWins());
+      document.querySelector(".scoreP2").textContent = playerTwo.getWins();
+      // console.log(playerTwo.getWins());
     }
   };
 
