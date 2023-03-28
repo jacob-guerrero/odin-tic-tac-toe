@@ -10,13 +10,20 @@ html {
     box-sizing: inherit;
 }
 :root {
-    --main-color: #1d3557;
+    --main-color: #fffcf2;
+    --side-color: #252422;
+    --contrast-color: #eb5e28;
+    --gray-light: #ccc5b9;
+    --gray-dark: #403d39;
+    --blue-light: #00afb9;
+    --blue-dark: #0081a7;
 }
 html, body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     width: 100%;
     height: 100%;
+    background-color: var(--main-color);
 }
 h1, h2, h3, p {
     margin: 0;
@@ -75,6 +82,7 @@ input {
     justify-self: center;
     align-self: center;
     font-size: 1rem;
+    font-weight: 700;
 }
 .nameP1, .nameP2, .scoreP1, .scoreP2 {
     font-size: clamp(1rem, 8vw, 2rem);
@@ -98,9 +106,11 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #eee;
-    font-size: clamp(1rem, 10vw, 10rem);
+    background-color: var(--gray-light);
+    font-size: clamp(1rem, 10vw, 6rem);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    cursor: pointer;
 }
 .spot:not(:last-child) {
     border-right: 0.3rem solid black;
@@ -112,6 +122,39 @@ input {
 .play-turn {
     font-size: 2rem;
     margin-top: 1rem;
+    text-align: center;
+}
+
+.container, .set-up {
+    max-width: 400px;
+    max-height: 400px;
+}
+
+/* Button */
+button {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #1A1A1A;
+  border-radius: 5px;
+  color: var(--side-color);
+  cursor: pointer;
+  line-height: normal;
+  outline: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+}
+button:hover {
+  color: #fff;
+  background-color: var(--blue-dark);
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+button:active {
+  box-shadow: none;
+  transform: translateY(0);
+  background-color: var(--blue-dark);
 }
 
 .row {
@@ -223,4 +266,21 @@ span {
         left: calc(50% - 3px);
         height: 120%;
     }
+}
+
+.smooth-show {
+    animation: scale-display .3s;
+}
+@keyframes scale-display {
+	0% {
+		opacity: 0;
+		transform: scale(0);
+    -webkit-transform: scale(0);
+	}
+
+	100% {
+		opacity: 1;
+		transform: scale(1);
+    -webkit-transform: scale(1);
+	}
 }

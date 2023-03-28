@@ -24,13 +24,17 @@ const GameBoard = (() => {
       playerMark === 0 &&
       document.querySelector('[data-index="0"]').style.pointerEvents === "none"
     ) {
-      document.querySelector(".play-turn").textContent = `${playerOne.name} Wins!`;
+      document.querySelector(
+        ".play-turn"
+      ).textContent = `${playerOne.name} Wins!`;
       // console.log(`${playerOne.name} Wins!`);
       playerOne.addWin();
       document.querySelector(".scoreP1").textContent = playerOne.getWins();
       // console.log(playerOne.getWins());
     } else {
-      document.querySelector(".play-turn").textContent = `${playerTwo.name} Wins!`;
+      document.querySelector(
+        ".play-turn"
+      ).textContent = `${playerTwo.name} Wins!`;
       // console.log(`${playerTwo.name} Wins!`);
       playerTwo.addWin();
       document.querySelector(".scoreP2").textContent = playerTwo.getWins();
@@ -110,12 +114,16 @@ const GameBoard = (() => {
     if (playerMark === 1) {
       mark = "X";
       playerMark = 0;
-      document.querySelector(".play-turn").textContent = `${playerTwo.name} turn`;
+      document.querySelector(
+        ".play-turn"
+      ).textContent = `${playerTwo.name} turn`;
       // console.log(`${playerTwo.name} turn`);
     } else {
       mark = "O";
       playerMark = 1;
-      document.querySelector(".play-turn").textContent = `${playerOne.name} turn`;
+      document.querySelector(
+        ".play-turn"
+      ).textContent = `${playerOne.name} turn`;
       // console.log(`${playerOne.name} turn`);
     }
     return mark;
@@ -205,6 +213,12 @@ const GameBoard = (() => {
         } else {
           playerTwo.name = player2.value;
         }
+
+        document.querySelector(".container").classList.add("smooth-show");
+        document.querySelector(".name1").classList.add("smooth-show");
+        document.querySelector(".name2").classList.add("smooth-show");
+        document.querySelector(".play-turn").classList.add("smooth-show");
+
         changeElements(playerOne.name, playerTwo.name);
         showBoard();
         switchPlayer();
@@ -224,8 +238,17 @@ const GameBoard = (() => {
           spot.style.pointerEvents = "auto";
         });
 
-        document.querySelector(".play-turn").textContent = `${playerOne.name} turn`;
+        document.querySelector(
+          ".play-turn"
+        ).textContent = `${playerOne.name} turn`;
         playerMark = 1;
+
+        document.querySelector(".container").classList.remove("smooth-show");
+        void document.querySelector(".container").offsetWidth;
+        document.querySelector(".container").classList.add("smooth-show");
+        document.querySelector(".play-turn").classList.remove("smooth-show");
+        void document.querySelector(".play-turn").offsetWidth;
+        document.querySelector(".play-turn").classList.add("smooth-show");
       }
 
       button.textContent = "Reset";
