@@ -67,6 +67,13 @@ const GameBoard = (() => {
         gameBoard[0][i] === gameBoard[2][i]
       ) {
         console.log("Win!");
+
+        // Add column strikethrough
+        const span = document.createElement("span");
+        span.classList.add("strikethrough-ver");
+        span.classList.add(`strikethrough-ver${i}`);
+        document.querySelector(".container").prepend(span);
+
         endGame();
         return;
       }
@@ -248,6 +255,8 @@ const GameBoard = (() => {
 
         if (document.querySelector(".strikethrough")) {
           document.querySelector(".strikethrough").remove();
+        } else if (document.querySelector(".strikethrough-ver")) {
+          document.querySelector(".strikethrough-ver").remove();
         }
 
         document.querySelector(".container").classList.remove("smooth-show");
