@@ -51,6 +51,12 @@ const GameBoard = (() => {
         gameBoard[i][1] === gameBoard[i][2]
       ) {
         console.log("Win!");
+
+        // Add row strikethrough
+        const span = document.createElement("span");
+        span.classList.add("strikethrough");
+        document.getElementsByClassName("row")[i].prepend(span);
+
         endGame();
         return;
       }
@@ -158,9 +164,6 @@ const GameBoard = (() => {
       rows.classList.add("row");
       container.appendChild(rows);
 
-      const span = document.createElement("span");
-      rows.appendChild(span);
-
       row.forEach((value) => {
         const elem = document.createElement("div");
         elem.setAttribute("data-index", i);
@@ -242,6 +245,10 @@ const GameBoard = (() => {
           ".play-turn"
         ).textContent = `${playerOne.name} turn`;
         playerMark = 1;
+
+        if (document.querySelector(".strikethrough")) {
+          document.querySelector(".strikethrough").remove();
+        }
 
         document.querySelector(".container").classList.remove("smooth-show");
         void document.querySelector(".container").offsetWidth;

@@ -132,63 +132,63 @@ input {
 
 /* Button */
 button {
-  appearance: none;
-  background-color: transparent;
-  border: 2px solid #1A1A1A;
-  border-radius: 5px;
-  color: var(--side-color);
-  cursor: pointer;
-  line-height: normal;
-  outline: none;
-  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
-  touch-action: manipulation;
-  width: 100%;
-  will-change: transform;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #1A1A1A;
+    border-radius: 5px;
+    color: var(--side-color);
+    cursor: pointer;
+    line-height: normal;
+    outline: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    touch-action: manipulation;
+    width: 100%;
+    will-change: transform;
 }
 button:hover {
-  color: #fff;
-  background-color: var(--blue-dark);
-  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-  transform: translateY(-2px);
+    color: #fff;
+    background-color: var(--blue-dark);
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
 }
 button:active {
-  box-shadow: none;
-  transform: translateY(0);
-  background-color: var(--blue-dark);
+    box-shadow: none;
+    transform: translateY(0);
+    background-color: var(--blue-dark);
 }
 
 .row {
     position: relative;  
 }
 
-span {
+.strikethrough, .strikethrough-ver {
     position: absolute;
 }
 
 /* Horizontal */
-/* span {
-  left: 5%;
-  top: calc(50% - 4px);
-  height: 0.4rem;
-  background: black;
-  content: "";
-  width: 1%;
-  border-radius: 5px;
-  z-index: 10;
+.strikethrough {
+    left: 5%;
+    top: calc(50% - 4px);
+    height: 0.4rem;
+    background: black;
+    content: "";
+    width: 1%;
+    border-radius: 5px;
+    z-index: 10;
 
-  -webkit-animation: increase 0.5s;
+    -webkit-animation: increase 0.5s;
     -moz-animation: increase 0.5s; 
     -o-animation: increase 0.5s; 
     animation: increase 0.5s ease-in-out;
     animation-fill-mode: forwards;
-} */
+}
 
 /* Vertical */ /* Needs to add span in container */
-/* .container {
+.container {
     position: relative;
 }
-span {
-    left: calc((100%)/6 - 3px);
+.strikethrough-ver {
+    left: calc((100%)/6 - 5px);
     top: 5%;
     height: 1%;
     background: black;
@@ -202,12 +202,15 @@ span {
     -o-animation: incrVert 0.5s; 
     animation: incrVert 0.5s ease-in-out;
     animation-fill-mode: forwards;
-} */
+}
+.strikethrough-ver.strikethrough-ver1 {
+    left: calc((100%)/2 - 5px);
+}
+.strikethrough-ver.strikethrough-ver2 {
+    left: calc((100%) - (100%)/6 - 3px);
+}
 
 /* Crossed */
-/* .container {
-    position: relative;
-}
 span {
     left: calc((100%)/12 - 3px);
     height: 1%;
@@ -223,7 +226,7 @@ span {
     -o-animation: incrCross 0.5s; 
     animation: incrCross 0.5s ease-in-out;
     animation-fill-mode: forwards;
-} */
+}
 
 /* .container {
     position: relative;
