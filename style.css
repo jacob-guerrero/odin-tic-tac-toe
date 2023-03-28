@@ -161,7 +161,7 @@ button:active {
     position: relative;  
 }
 
-.strikethrough, .strikethrough-ver {
+.strikethrough, .strikethrough-ver, .strikethrough-cross {
     position: absolute;
 }
 
@@ -211,42 +211,35 @@ button:active {
 }
 
 /* Crossed */
-span {
-    left: calc((100%)/12 - 3px);
+.strikethrough-cross {
     height: 1%;
     background: black;
     content: "";
     width: 0.4rem;
     border-radius: 5px;
     z-index: 10;
+}
+.strikethrough-cross0 {
+    left: calc((100%)/12 - 3px);
     rotate: -45deg;
 
-    -webkit-animation: incrCross 0.5s;
-    -moz-animation: incrCross 0.5s; 
-    -o-animation: incrCross 0.5s; 
-    animation: incrCross 0.5s ease-in-out;
+    -webkit-animation: incrCross0 0.5s;
+    -moz-animation: incrCross0 0.5s; 
+    -o-animation: incrCross0 0.5s; 
+    animation: incrCross0 0.5s ease-in-out;
     animation-fill-mode: forwards;
 }
 
-/* .container {
-    position: relative;
-}
-span {
-    left: calc(100% - ((100%)/12 + 3px));
-    height: 1%;
-    background: black;
-    content: "";
-    width: 0.4rem;
-    border-radius: 5px;
-    z-index: 10;
+.strikethrough-cross1 {
+    left: calc(100% - ((100%)/12 + 7px));
     rotate: 45deg;
 
-    -webkit-animation: incrCross 0.5s;
-    -moz-animation: incrCross 0.5s; 
-    -o-animation: incrCross 0.5s; 
-    animation: incrCross 0.5s ease-in-out;
+    -webkit-animation: incrCross1 0.5s;
+    -moz-animation: incrCross1 0.5s; 
+    -o-animation: incrCross1 0.5s; 
+    animation: incrCross1 0.5s ease-in-out;
     animation-fill-mode: forwards;
-} */
+}
 
 @keyframes increase {
     100% {
@@ -260,13 +253,23 @@ span {
     }
 }
 
-@keyframes incrCross {
+@keyframes incrCross0 {
     0% {
         top: 8%;
     }
     100% {
         top: -10%;
         left: calc(50% - 3px);
+        height: 120%;
+    }
+}
+@keyframes incrCross1 {
+    0% {
+        top: 8%;
+    }
+    100% {
+        top: -10%;
+        left: calc(50% - 6px);
         height: 120%;
     }
 }

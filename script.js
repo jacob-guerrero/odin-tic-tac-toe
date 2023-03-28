@@ -86,6 +86,13 @@ const GameBoard = (() => {
       gameBoard[0][0] === gameBoard[2][2]
     ) {
       console.log("Win!");
+
+        // Add column strikethrough
+        const span = document.createElement("span");
+        span.classList.add("strikethrough-cross");
+        span.classList.add("strikethrough-cross0");
+        document.querySelector(".container").prepend(span);
+
       endGame();
     }
     if (
@@ -94,6 +101,13 @@ const GameBoard = (() => {
       gameBoard[0][2] === gameBoard[2][0]
     ) {
       console.log("Win!");
+
+        // Add column strikethrough
+        const span = document.createElement("span");
+        span.classList.add("strikethrough-cross");
+        span.classList.add("strikethrough-cross1");
+        document.querySelector(".container").prepend(span);
+      
       endGame();
     }
 
@@ -257,6 +271,8 @@ const GameBoard = (() => {
           document.querySelector(".strikethrough").remove();
         } else if (document.querySelector(".strikethrough-ver")) {
           document.querySelector(".strikethrough-ver").remove();
+        } else if (document.querySelector(".strikethrough-cross")) {
+          document.querySelector(".strikethrough-cross").remove();
         }
 
         document.querySelector(".container").classList.remove("smooth-show");
