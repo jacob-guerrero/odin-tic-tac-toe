@@ -143,14 +143,14 @@ const GameBoard = (() => {
       playerMark = 0;
       document.querySelector(
         ".play-turn"
-      ).textContent = `${playerTwo.name} turn`;
+      ).textContent = `${playerTwo.name}'s turn`;
       // console.log(`${playerTwo.name} turn`);
     } else {
       mark = "O";
       playerMark = 1;
       document.querySelector(
         ".play-turn"
-      ).textContent = `${playerOne.name} turn`;
+      ).textContent = `${playerOne.name}'s turn`;
       // console.log(`${playerOne.name} turn`);
     }
     return mark;
